@@ -1,0 +1,82 @@
+.index{
+    /*background-image: url(../img/Cielo.jpg);*/
+    background-color:rgba(19, 179, 219, 0.24);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+
+/* Paso navbar navbar-expand-lg bg-primary a navbar.navbar-expand-lg.bg-primary para cambiar el estilo a mi color de preferencia */
+/* .navbar.navbar-expand-lg.bg-primary{
+    background: rgb(15,15,226);
+    background: -moz-linear-gradient(0deg, rgba(15,15,226,1) 33%, rgba(211,226,25,1) 33%, rgba(211,226,25,1) 66%, rgba(15,15,226,1) 66%);
+    background: -webkit-linear-gradient(0deg, rgba(15,15,226,1) 33%, rgba(211,226,25,1) 33%, rgba(211,226,25,1) 66%, rgba(15,15,226,1) 66%);
+    background: linear-gradient(0deg, rgba(15,15,226,1) 33%, rgba(211,226,25,1) 33%, rgba(211,226,25,1) 66%, rgba(15,15,226,1) 66%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f0fe2",endColorstr="#0f0fe2",GradientType=1); 
+} */
+
+/* Paso <li class="list-group-item"><i class="fa-brands fa-instagram fa-2xl"></i></li> a */
+/* Pongo :hover para que al acercarme al ícono tenga color */
+
+i.fa-brands.fa-facebook.fa-2xl,
+i.fa-brands.fa-linkedin.fa-2xl,
+i.fa-brands.fa-instagram.fa-2xl,
+i.fa-solid.fa-user.fa-2xl,
+i.fa-solid.fa-user-lock.fa-2xl{
+    color: rgb(255, 255, 255);
+}
+
+i.fa-brands.fa-facebook.fa-2xl:hover{
+    color:rgb(2, 2, 253);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+i.fa-brands.fa-linkedin.fa-2xl:hover{
+    color:rgb(14, 170, 218);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+i.fa-brands.fa-instagram.fa-2xl:hover{
+    color:rgb(221, 75, 209);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+i.fa-solid.fa-user.fa-2xl:hover{
+    color: rgb(219, 109, 19);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+i.fa-solid.fa-user-lock.fa-2xl:hover{
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+
+.list-group{
+    /* el --bs-list-group-bg lo saque con el inspeccionador */
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-color: transparent;
+}
+
+section.about,
+section.edit,
+section.panel{
+    /* Pongo margin-top para que las letras se vean */
+    margin-top: 15rem;
+    /* No utilizamos pixeles para que sea responsive */
+}
+
+.text-secondary{
+    color: rgb(76, 219, 19)!important;
+}
+div.seccion{
+    background-color: rgba(255, 0, 64, 0.13);
+}
+
+

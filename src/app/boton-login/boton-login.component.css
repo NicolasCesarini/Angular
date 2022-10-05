@@ -1,0 +1,9 @@
+i.fa-solid.fa-user.fa-2xl{
+    color: rgb(255, 255, 255);
+}
+
+i.fa-solid.fa-user.fa-2xl:hover{
+    color: rgb(219, 109, 19);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}

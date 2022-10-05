@@ -1,0 +1,30 @@
+*{
+    width: 100%;
+    margin: auto;
+    padding: 0.25%;
+    /* overflow-y: hidden; */ /* Esto me hace que me desaparezca la barra de scroll */
+}
+
+/*body {
+    background: url(../img/030015d9.jpg);
+}*/
+
+.titulo {
+    color:rgb(122, 34, 173);
+    /* #000 hex color - color hexadecimal */
+}
+
+.fondo {
+    /* background: rgb(33, 175, 52); */
+    /* background-image: url(https://www.caracteristicas.co/wp-content/uploads/2017/02/perro-1-e1561678907722.jpg); */
+    background-image: url(../img/030015d9.jpg);
+    /* ../ para ir una carpeta para atras */
+
+}
+
+.card { 
+    width: 18rem;
+}
+
+/*  */
+
