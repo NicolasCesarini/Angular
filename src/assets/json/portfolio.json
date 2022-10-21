@@ -1,0 +1,51 @@
+{
+    "nombre": "Nicolás",
+    "apellido": "Cesarini",
+    "acerca_de_mi": "Lorem ipsum",
+
+    "educacion": [
+        {
+            "id": 0,
+            "inicio": "Marzo 2022",
+            "fin": "Mayo 2022",
+            "nivel": "Se Programar",
+            "img": "assets/img/Logo Argentina Programa.png"
+        },
+        {   
+            "id": 1,
+            "inicio": "Junio 2022",
+            "fin": "Enero 2023",
+            "nivel": "Yo Programo",
+            "img": "assets/img/Logo Argentina Programa.png"
+        }
+    ],
+    
+    "frase": "Lorem ipsum",
+
+    "progresos": [
+        {
+            "id": 0,
+            "habilidad": "HTML",
+            "porcentaje": "90",
+            "color": "bg-danger"
+        },
+        {   
+            "id": 1,
+            "habilidad": "Habilidades",
+            "porcentaje": "75",
+            "color": "bg-warning"
+        },
+        {   
+            "id": 2,
+            "habilidad": "CSS",
+            "porcentaje": "80",
+            "color": "bg-info"
+        },
+        {   
+            "id": 3,
+            "habilidad": "Bootstrap",
+            "porcentaje": "90",
+            "color": "bg-success"
+        }
+    ]
+}

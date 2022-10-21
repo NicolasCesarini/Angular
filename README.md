@@ -100,3 +100,31 @@ import { ErrorComponent } from './error/error.component';
 # Tengo que poner en dashboard una navbar distinta por el iconito de cerrar perfil
 # Hago la navegación interna de la página con <a routerLink="/">Enlace</a>, las redes con href como antes
 # Voy a usar ng if dentro del componente redes
+# Un proyecto de Ángular empieza por app
+# Con alt+shift+a puedo comentar en visual studio
+# Ángular no toma javascript, hay que pasarlo a Typescript. Ángular solo entiende javascript de bootstrap porque bootstrap ya tiene un traductor a Typescript
+# los ngif o ngfor se pueden usar con * o con [], es preferible usar * porque son menos líneas de código
+# Un servicio es una cosa que hace de nexo entre el json y el componente
+# Voy a crear un json con todos los datos y un servicio al cual le mando todos lo componentes para que los componentes puedan leer el servicio y traer todos los datos que  quiera mostrar
+# Un servicio se puede inyectar dentro de un componente para que funcione, y se inyecta en la parte de la lógica (.ts)
+# Hago una carpeta dentro de app llamada servicios y creo un servicio llamado portfolio
+# Como el servicio se tiene que comunicar con un json lo creo en assets/json llamado portfolio.json
+# Armo el json de la misma manera que esta el de VisualStudio o el que halla en el proyecto
+# En el json el único o último dato no lleva com (,)
+# Para hacer los datos de educación hago un array de objetos (para poner más de una educación)
+# [{},{}] Entre [] va el array y los {} son objetos
+# Si llegase a tener un error en el json puedo usar en https://www.freeformatter.com/json-validator.html
+# Ahora empiezo usando los datos del nombre en sobre mi en el componente con los pipes {} para eso ademas tengo que vincular el json con el ts del componente
+# Primero se importa el json en el servicio y luego se importa el servico en el componente
+# Pongo import { Observable } from 'rxjs'; en el ts de sobre mi
+# Importante!! Puede pasar cuando se inyectan servicios que se cae el vivo
+# En ese caso hay que matar la terminal y volverla a abrir hasta que vuelva a funcionar
+# Tenía un problema al usar el servicio portfolio por no estar en app.module.ts
+# Esto es porque el Ángular Schematics routea en app.module
+# Para habilidades me fijo que cambia en el progress bar para ver que pongo en la base de datos provisoria en JSON
+# Para traer datos de arrayt uso lo que esta en habilidades
+# Para hacer en la barra de progresos {style: **%} usamos [style.width.%]="progreso.porcentaje"
+# Sesiones
+# Autorización la hace la base de datos
+# Autentificación la hace JWT (JSON Web Token) EL JWT  sirve en los sistemas de seguridad
+# Permite el intercambio seguro de datos entre dos partes. Este queda almacenado como una cookie. Hace que solo pueda ingresar a la parte administradora de la web con una contraseña o alguna seguridad.
