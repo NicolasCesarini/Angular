@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../servicios/portfolio.service';
+import { Observable } from 'rxjs';
+import { Persona } from '../entidades/persona';
+import { PersonaService } from '../servicios/persona.service';
+
 
 @Component({
   selector: 'app-sobre-mi',
@@ -7,25 +10,34 @@ import { PortfolioService } from '../servicios/portfolio.service';
   styleUrls: ['./sobre-mi.component.css']
 })
 export class SobreMiComponent implements OnInit {
-
-  // Crear variable de instancia para almacenar los datos con los que trata el Servicio
-  nombre: string = '';
-  apellido: string = '';
-  acerca_de_mi: string = '';
   
-  constructor(
-    // Inyectar el Servicio para tener acceso en la clase a los Métodos
-  private portfolioService: PortfolioService) { }
+  personas: Persona[]=[] //la entidad Persona
+  httpClient: any;
+  
+  constructor(private sPersona: PersonaService) {}
 
   ngOnInit(): void {
-    // Esto es almacenar en la variable de instancia los datos recuperados por el Servicio?
-    this.portfolioService.getDatos().subscribe(portfolio => {
-      console.log(portfolio);
-      // this.infoPortfolio=datos.uno;
-      this.nombre=portfolio.nombre;
-      this.apellido=portfolio.apellido;
-      this.acerca_de_mi=portfolio.acerca_de_mi;
-  });
+    this.lista();
   }
+
+  lista():void{
+    this.sPersona.verPersonas().subscribe(data => {this.personas=data});
+  }
+
+
+
+  //public crearPersona(persona: Persona): Observable<any>{
+  //  return this.httpClient.post<any>(this.url + 'new', persona); //eso es por el RequestBody
+  //}
+
+  //public borrarPersona(id: number): Observable<Persona>{
+    //return this.httpClient.delete<Persona>(this.url + `delete/${id}`)
+  //}
+
+
+
+
+
+
 
 }

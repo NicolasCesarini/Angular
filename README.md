@@ -128,3 +128,16 @@ import { ErrorComponent } from './error/error.component';
 # Autorización la hace la base de datos
 # Autentificación la hace JWT (JSON Web Token) EL JWT  sirve en los sistemas de seguridad
 # Permite el intercambio seguro de datos entre dos partes. Este queda almacenado como una cookie. Hace que solo pueda ingresar a la parte administradora de la web con una contraseña o alguna seguridad.
+
+
+# Vuelvo a Angular a poner el backend
+# creo una carpeta llamada entidades
+# Botón derecho Angular: Generate another schematic y pongo class
+# Selecciono Skip test y luego true y confirmo
+# Ahi pongo los atributos con su tipo de dato y el constructor de cada clase
+# Para que no tire error a id le pongo un ? o !
+# Los date del backend los pongo como string que funcionan bien y los booleanos como boolean
+# Ahora vemos la base JSON que teníamos de antes
+# Creamos un nuevo servicio dentro de la carpeta servicios con la entidad en cuestión
+
+# Para hacer el formulario por gongo el form antes del modal body y lo termino despues del footer

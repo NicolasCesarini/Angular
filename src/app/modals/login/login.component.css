@@ -1,0 +1,9 @@
+.error{
+    color:red
+}
+
+section.login{
+    /* Pongo margin-top para que las letras se vean */
+    margin-top: 10rem;
+    /* No utilizamos pixeles para que sea responsive */
+}

@@ -1,11 +1,43 @@
     <h4> Datos Personales </h4>
-    <div class="mb-3">
-        <label for="formFile" class="form-label">Foto de Perfil</label>
-        <input class="form-control" type="file" id="formFile">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
-    <div class="mb-3">
-        <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
+    
+    <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" formControlName="apellido" [(ngModel)]="apellido">
+        </div>
+        <div class="mb-3">
+            <label for="imgPerfil" class="form-label">Imagen de Perfil</label>
+            <input type="text" class="form-control" id="imgPerfil" formControlName="imgPerfil" [(ngModel)]="imgPerfil">
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="text" class="form-control" id="edad" formControlName="edad" [(ngModel)]="edad">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email (Usuario)</label>
+            <input type="text" class="form-control" id="email" formControlName="email" [(ngModel)]="email">
+        </div>
+        <div class="mb-3">
+            <label for="clave" class="form-label">Password</label>
+            <input type="text" class="form-control" id="clave" formControlName="clave" [(ngModel)]="clave">
+        </div>
+        <div class="mb-3"> 
+            <label for="acercade" class="form-label">Acerca de Mí</label>
+            <textarea class="form-control" id="acercade" formControlName="acercade" type="text" [(ngModel)]="acercade"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="github" class="form-label">Link Github</label>
+            <input type="text" class="form-control" id="github" formControlName="github" [(ngModel)]="github">
+        </div>
+        <div class="mb-3">
+            <label for="linkedin" class="form-label">Link Linkedin</label>
+            <input type="text" class="form-control" id="linkedin" formControlName="linkedin" [(ngModel)]="linkedin">
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>

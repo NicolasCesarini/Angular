@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from '../servicios/portfolio.service';
+import { Habilidad } from '../entidades/habilidad';
+import { HabilidadService } from '../servicios/habilidad.service';
 
 @Component({
   selector: 'app-habilidades',
@@ -8,24 +9,45 @@ import { PortfolioService } from '../servicios/portfolio.service';
 })
 export class HabilidadesComponent implements OnInit {
 
-    // Inicializar array progresos (pongo any porque es datos de todo tipo, ya sea texto, número o booleano)
-    progresos: any = [];
+  habilidades: Habilidad[]=[] //se llama a la entidad Habilidad
   
+  constructor(private sHabilidad: HabilidadService) { } //se llama al servicio Habilidad
 
-  constructor(
-    // Inyectar el Servicio para tener acceso en la clase a los Métodos
-  private portfolioService: PortfolioService) { }
-
-  ngOnInit(): void {
-    // Esto es almacenar en la variable de instancia los datos recuperados por el Servicio?
-    this.portfolioService.getDatos().subscribe(portfolio => { // este portfolio es un componente le podria poner el nombre que quiera
-      // console.log(portfolio); (ya no lo necesitamos)
-      // Definir variables a mostrar
-      // this.progresos(variable que puse en el html cuando puse let progreso of progresos)=portfolio.progresos(este es el array de progresos que esta dentro del ts portfolio);
-      this.progresos=portfolio.progresos;
-
-    
-  });
+  ngOnInit(): void { //se hace cuando se inicia la página
+    this.cargarHabilidad();
   }
+
+  //llamamos a los métodos
+
+  public cargarHabilidad():void{   //no va a haber ningun retorno, solo una carga de datos
+    this.sHabilidad.verHabilidades().subscribe(data => {this.habilidades=data}); // uso el this porque esta fuera del método
+  }
+
+  public borrar(id:number){
+    if(id != undefined){
+      this.sHabilidad.borrarHabilidad(id).subscribe(
+        data =>{
+          // alert("Habilidad eliminada correctamente)
+          this.cargarHabilidad();
+        }, err =>{
+          alert("No se pudo elmiminar la experiencia")
+        }
+      )
+    }
+  }
+
+  public  (id:number){
+    if(id != undefined){
+      this.sHabilidad.borrarHabilidad(id).subscribe(
+        data =>{
+          // alert("Habilidad eliminada correctamente)
+          this.cargarHabilidad();
+        }, err =>{
+          alert("No se pudo elmiminar la experiencia")
+        }
+      )
+    }
+  }
+
 
 }

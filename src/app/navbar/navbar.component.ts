@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  logueado: Boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
+    sessionStorage.getItem("currentUser");
+
+    if(sessionStorage.getItem("currentUser")){
+      this.logueado = true;
+    }
+    else{
+      this.logueado = false;
+    }
   }
 
 }

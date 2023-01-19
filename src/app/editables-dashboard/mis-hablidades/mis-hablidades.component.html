@@ -1,11 +1,13 @@
     <h4> Habilidades </h4>
-    <div class="mb-3">
-        <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
-    <div class="mb-3">
-        <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
+    <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la Habilidad</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="porcentaje" class="form-label">Porcentaje de Aprendizaje</label>
+            <input type="text" class="form-control" id="porcentaje" formControlName="porcentaje" [(ngModel)]="porcentaje">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>

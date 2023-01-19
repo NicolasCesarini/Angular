@@ -1,11 +1,53 @@
     <h4> Estudio </h4>
-    <div class="mb-3">
-        <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
-    <div class="mb-3">
-        <label for="formFileSm" class="form-label">Nombre y Apellido</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
-    </div>
+    <form [formGroup]="form" name="educacionForm">
+
+        <ul class="p-0">
+            <li *ngFor="let estudio of estudios" class="d-flex justify-content-between align-items-center m-1 ">
+              <span>{{estudio.id}}. {{estudio.tituloCurso|uppercase}}</span>
+              <span class="d-flex justify-content-between gap-2">
+              <!--lapicito rojo que se cambia al tocarlo-->
+                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetalle(estudio.id)">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+                <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(estudio.id)">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </span>
+            </li>
+          </ul>
+<!--esto es la validacion  renderizado condicional-->
+          <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+            <div class="input-group-prepend border-0">
+              <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+            </div>
+            <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+          </div>
+
+
+        <div class="mb-3">
+            <label for="tituloCurso" class="form-label">Nombre del Estudio</label>
+            <input type="text" class="form-control" id="tituloCurso" placeholder="campo obligatorio" formControlName="tituloCurso"
+                [ngClass]="{'is-invalid': form.get('tituloCurso')?.errors && form.get('tituloCurso')?.touched, 'is-valid': form.get('tituloCurso')?.errors && form.get('tituloCurso')?.touched}">
+            <p class="text-danger" *ngIf="form.get('tituloCurso')?.touched && form.get('tituloCurso')?.errors?.['required']">
+                El Nombre de la Educacion es requerido.
+            </p>
+        </div>
+        <div class="mb-3">
+            <label for="imgCurso" class="form-label">Imagen de la Institución</label>
+            <input type="text" class="form-control" id="imgCurso" placeholder="" formControlName="imgCurso">
+        </div>
+        <div class="mb-3">
+            <label for="anio" class="form-label">Años en los que se realizó el aprendizaje</label>
+            <input type="text" class="form-control" id="anio" placeholder="" formControlName="anio">
+        </div>
+        <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>-->
+        <button class="btn btn-primary" (click)="guardar()"[disabled]="form.invalid">Guardar</button>
+    </form>
+
+
+
+
+
+    

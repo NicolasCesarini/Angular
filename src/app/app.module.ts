@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,10 @@ import { PerfilComponent } from './editables-dashboard/perfil/perfil.component';
 import { ExperienciaLaboralComponent } from './editables-dashboard/experiencia-laboral/experiencia-laboral.component';
 import { EstudioComponent } from './editables-dashboard/estudio/estudio.component';
 import { MisHablidadesComponent } from './editables-dashboard/mis-hablidades/mis-hablidades.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PersonaService } from './servicios/persona.service';
+import { InterceptorService } from './servicios/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -50,9 +54,11 @@ import { MisHablidadesComponent } from './editables-dashboard/mis-hablidades/mis
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PersonaService, { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,23 @@
     <h4> Experiencia Laboral </h4>
+    <!--<button type="button" class="btn btn-primary">Guardar</button>-->
+<form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
     <div class="mb-3">
-        <label for="formFileSm" class="form-label">Título del Puesto</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="text">
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <label for="puesto" class="form-label">Título del Puesto</label>
+        <input type="text" class="form-control" id="puesto" formControlName="puesto" [(ngModel)]="puesto">
     </div>
     <div class="mb-3">
-        <label for="formFileSm" class="form-label">Descripción del Puesto</label>
-        <textarea class="form-control form-control-sm" id="formFileSm" type="text"></textarea>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <label for="imgExperiencia" class="form-label">Imagen de la Empresa</label>
+        <input type="text" class="form-control" id="imgExperiencia" formControlName="imgExperiencia" [(ngModel)]="imgExperiencia">
     </div>
+    <div class="mb-3"> 
+        <label for="descripcionTrabajo" class="form-label">Descripción del Puesto</label>
+        <textarea class="form-control" id="descripcionTrabajo" formControlName="descripcionTrabajo" type="text" [(ngModel)]="descripcionTrabajo"></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="anio" class="form-label">Años en el Empleo</label>
+        <input type="text" class="form-control" id="anio" formControlName="anio" [(ngModel)]="anio">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
