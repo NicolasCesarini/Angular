@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticationService } from '../servicios/autentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,19 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  logueado: Boolean = false
+  logueado: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    sessionStorage.getItem("currentUser");
-
-    if(sessionStorage.getItem("currentUser")){
+    if (sessionStorage.getItem('currentUser') == "null") {
+      this.logueado = false;
+    } else if (sessionStorage.getItem('currentUser') == null) {
+      this.logueado = false;
+    } else {
       this.logueado = true;
     }
-    else{
-      this.logueado = false;
-    }
   }
-
 }

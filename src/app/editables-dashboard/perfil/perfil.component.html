@@ -1,43 +1,87 @@
     <h4> Datos Personales </h4>
-    
-    <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+    <form [formGroup]="form" name="personaForm">
+
+        <ul class="p-0">
+            <li *ngFor="let usuario of usuarios" class="d-flex justify-content-between align-items-center m-1 ">
+              <span>{{usuario.id}}. {{usuario.nombre|uppercase}}</span>
+              <span class="d-flex justify-content-between gap-2">
+              <!--Lapiz para editar-->
+                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetalle(usuario.id)">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+              </span>
+            </li>
+          </ul>
+<!--Validacion condicional-->
+          <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+            <div class="input-group-prepend border-0">
+              <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+            </div>
+            <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+          </div>
+
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="nombre">
+            <input type="text" class="form-control" id="nombre" placeholder="campo obligatorio" formControlName="nombre"
+                [ngClass]="{'is-invalid': form.get('nombre')?.errors && form.get('nombre')?.touched, 'is-valid': form.get('nombre')?.errors && form.get('nombre')?.touched}">
+            <p class="text-danger" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.errors?.['required']">
+                El Nombre es requerido.
+            </p>
         </div>
         <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" formControlName="apellido" [(ngModel)]="apellido">
-        </div>
-        <div class="mb-3">
-            <label for="imgPerfil" class="form-label">Imagen de Perfil</label>
-            <input type="text" class="form-control" id="imgPerfil" formControlName="imgPerfil" [(ngModel)]="imgPerfil">
+            <input type="text" class="form-control" id="apellido" placeholder="campo obligatorio" formControlName="apellido"
+                [ngClass]="{'is-invalid': form.get('apellido')?.errors && form.get('apellido')?.touched, 'is-valid': form.get('apellido')?.errors && form.get('apellido')?.touched}">
+            <p class="text-danger" *ngIf="form.get('apellido')?.touched && form.get('apellido')?.errors?.['required']">
+                El Apellido es requerido.
+            </p>
         </div>
         <div class="mb-3">
             <label for="edad" class="form-label">Edad</label>
-            <input type="text" class="form-control" id="edad" formControlName="edad" [(ngModel)]="edad">
+            <input type="text" class="form-control" id="edad" placeholder="" formControlName="edad">
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email (Usuario)</label>
-            <input type="text" class="form-control" id="email" formControlName="email" [(ngModel)]="email">
+            <label for="imgPerfil" class="form-label">Imagen de Perfil</label>
+            <input type="text" class="form-control" id="imgPerfil" placeholder="campo obligatorio" formControlName="imgPerfil"
+                [ngClass]="{'is-invalid': form.get('imgPerfil')?.errors && form.get('imgPerfil')?.touched, 'is-valid': form.get('imgPerfil')?.errors && form.get('imgPerfil')?.touched}">
+            <p class="text-danger" *ngIf="form.get('imgPerfil')?.touched && form.get('imgPerfil')?.errors?.['required']">
+                La imagen de perfil es requerida.
+            </p>
         </div>
         <div class="mb-3">
-            <label for="clave" class="form-label">Password</label>
-            <input type="text" class="form-control" id="clave" formControlName="clave" [(ngModel)]="clave">
-        </div>
-        <div class="mb-3"> 
-            <label for="acercade" class="form-label">Acerca de Mí</label>
-            <textarea class="form-control" id="acercade" formControlName="acercade" type="text" [(ngModel)]="acercade"></textarea>
+            <label for="github" class="form-label">Link de Github</label>
+            <input type="text" class="form-control" id="github" placeholder="" formControlName="github">
         </div>
         <div class="mb-3">
-            <label for="github" class="form-label">Link Github</label>
-            <input type="text" class="form-control" id="github" formControlName="github" [(ngModel)]="github">
+            <label for="linkedin" class="form-label">Link de LinkedIn</label>
+            <input type="text" class="form-control" id="linkedin" placeholder="" formControlName="linkedin">
         </div>
         <div class="mb-3">
-            <label for="linkedin" class="form-label">Link Linkedin</label>
-            <input type="text" class="form-control" id="linkedin" formControlName="linkedin" [(ngModel)]="linkedin">
+            <label for="email" class="form-label">Email Personal</label>
+            <input type="text" class="form-control" id="email" placeholder="campo obligatorio" formControlName="email"
+                [ngClass]="{'is-invalid': form.get('email')?.errors && form.get('email')?.touched, 'is-valid': form.get('email')?.errors && form.get('email')?.touched}">
+            <p class="text-danger" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">
+                El Email es requerido.
+            </p>
         </div>
-
-        <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="mb-3">
+            <label for="clave" class="form-label">Clave</label>
+            <input type="text" class="form-control" id="clave" placeholder="campo obligatorio" formControlName="clave"
+                [ngClass]="{'is-invalid': form.get('clave')?.errors && form.get('clave')?.touched, 'is-valid': form.get('clave')?.errors && form.get('clave')?.touched}">
+            <p class="text-danger" *ngIf="form.get('clave')?.touched && form.get('clave')?.errors?.['required']">
+                La Clave es requerida.
+            </p>
+        </div>
+        <div class="mb-3">
+            <label for="acercade" class="form-label">Descripción personal</label>
+            <textarea class="form-control" id="acercade" placeholder="campo obligatorio" formControlName="acercade"
+                [ngClass]="{'is-invalid': form.get('acercade')?.errors && form.get('acercade')?.touched, 'is-valid': form.get('acercade')?.errors && form.get('acercade')?.touched}">
+            </textarea>
+            <p class="text-danger" *ngIf="form.get('acercade')?.touched && form.get('acercade')?.errors?.['required']">
+                Una breve descripción personal es requerida.
+            </p>
+        </div>
+        <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>-->
+        <button class="btn btn-primary" (click)="guardar()"[disabled]="form.invalid">Guardar</button>
     </form>

@@ -11,19 +11,21 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 export class PerfilComponent implements OnInit {
 
   form: FormGroup; // el form es una variable
-  nombre: string = '';
-  apellido: string = '';
-  edad: string = '';
-  imgPerfil: string = '';
-  github: string = '';
-  linkedin: string = '';
-  email: string = '';
-  clave: string = '';
-  acercade: string = '';
+  usuarios: Persona[] = [];
+  //nombre: string = '';
+  //apellido: string = '';
+  //edad: string = '';
+  //imgPerfil: string = '';
+  //github: string = '';
+  //linkedin: string = '';
+  //email: string = '';
+  //clave: string = '';
+  //acercade: string = '';
 
   constructor(private formBuilder: FormBuilder, private sPersona: PersonaService) {  // el formBuilder es un alias
     // Creamos el grupo de controles para el formulario de login
     this.form= this.formBuilder.group({
+      id: [''],
       nombre:['', [Validators.required]],
       apellido:['', [Validators.required]],
       edad:[''],
@@ -37,37 +39,50 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit(): void { //vacio
-  }
-
-  //hacer los métodos
-  get Nombre(){
-    return this.form.get("nombre");
-  }
-
-  get Apellido(){
-    return this.form.get("apellido");
-  }
-
-  //acá podria poner las validaciones
-  onCreate(): void{
-    const persona = new Persona(this.nombre, this.apellido, this.edad, this.imgPerfil, this.github, this.linkedin, 
-      this.email, this.clave, this.acercade);
-    this.sPersona.agregarPersona(persona).subscribe(data=>{alert("Persona añadida")
-    window.location.reload();
-    });
-  }
-
-  limpiar():void{
+    this.cargarPersona();
     this.form.reset();
   }
 
-  onEnviar(event:Event){
-    event.preventDefault;
-    if (this.form.valid){
-      this.onCreate();
-    } else{
-      alert("fallo en la carga, intente nuevamente");
-      this.form.markAllAsTouched();
-    }
+  cargarPersona(): void {
+    this.sPersona.verPersonas().subscribe(
+      data => {
+        this.usuarios = data;
+      }
+    )
+  }
+
+  cargarDetalle(id: number) {
+    this.sPersona.verPersona(id).subscribe(
+      {
+        next: (data) => {
+          this.form.setValue(data);
+        },
+        error: (e) => {
+          console.error(e)
+          alert("error al modificar")
+        },
+        complete: () => console.info('completar aquí')
+      }
+    )
+  }
+
+
+  guardar() {
+
+
+    let persona = this.form.value;
+
+    this.sPersona.updatePersona(persona.id, persona).subscribe(
+      data => {
+        alert('Persona editada correctamente');
+        this.cargarPersona();
+        this.form.reset();
+      },
+      error => {
+        alert('Persona editada correctamente');
+        this.cargarPersona();
+        this.form.reset();
+      }
+    )
   }
 }

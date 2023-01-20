@@ -26,7 +26,7 @@ export class PersonaService {
     return this.httpClient.delete<Persona>(this.url + `borrar/${id}`)
   }
 
-  public updatePersona(persona: Persona): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', persona); //es igual al crear pero con put en vez de post
+  public updatePersona(id:number, persona: Persona): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, persona); //es igual al crear pero con put en vez de post
   }
 }

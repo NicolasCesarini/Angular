@@ -25,12 +25,12 @@ export class BotonLogoutComponent implements OnInit {
   }
 
 cerrarSesion(){
-  sessionStorage.setItem('currentUser',null);
+  sessionStorage.setItem('currentUser',"null");
   this.modoEdit = false;
   alert("SESIÓN CERRADA");
 
   window.sessionStorage.removeItem;
-  this.ruta.navigate(['/']);
   //window.location.reload();
+  this.ruta.navigate(['/']);
 }
 }
