@@ -10,7 +10,6 @@ import { ExperienciaComponent } from './experiencia/experiencia.component';
 import { HabilidadesComponent } from './habilidades/habilidades.component';
 import { RedesComponent } from './redes/redes.component';
 import { SobreMiComponent } from './sobre-mi/sobre-mi.component';
-import { TrabajoComponent } from './trabajo/trabajo.component';
 import { LoginComponent } from './modals/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
@@ -37,7 +36,6 @@ import { InterceptorService } from './servicios/interceptor.service';
     HabilidadesComponent,
     RedesComponent,
     SobreMiComponent,
-    TrabajoComponent,
     LoginComponent,
     DashboardComponent,
     ErrorComponent,

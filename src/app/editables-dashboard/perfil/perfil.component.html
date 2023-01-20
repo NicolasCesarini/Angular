@@ -1,24 +1,7 @@
     <h4> Datos Personales </h4>
     <form [formGroup]="form" name="personaForm">
 
-        <ul class="p-0">
-            <li *ngFor="let usuario of usuarios" class="d-flex justify-content-between align-items-center m-1 ">
-              <span>{{usuario.id}}. {{usuario.nombre|uppercase}}</span>
-              <span class="d-flex justify-content-between gap-2">
-              <!--Lapiz para editar-->
-                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetalle(usuario.id)">
-                  <i class="fa-solid fa-pen"></i>
-                </button>
-              </span>
-            </li>
-          </ul>
-<!--Validacion condicional-->
-          <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
-            <div class="input-group-prepend border-0">
-              <span class="input-group-text border-0" id="basic-addon1">ID:</span>
-            </div>
-            <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
-          </div>
+        
 
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -73,11 +56,11 @@
             </p>
         </div>
         <div class="mb-3">
-            <label for="acercade" class="form-label">Descripción personal</label>
-            <textarea class="form-control" id="acercade" placeholder="campo obligatorio" formControlName="acercade"
-                [ngClass]="{'is-invalid': form.get('acercade')?.errors && form.get('acercade')?.touched, 'is-valid': form.get('acercade')?.errors && form.get('acercade')?.touched}">
+            <label for="acercaDe" class="form-label">Descripción personal</label>
+            <textarea class="form-control" id="acercaDe" placeholder="campo obligatorio" formControlName="acercaDe"
+                [ngClass]="{'is-invalid': form.get('acercaDe')?.errors && form.get('acercaDe')?.touched, 'is-valid': form.get('acercaDe')?.errors && form.get('acercaDe')?.touched}">
             </textarea>
-            <p class="text-danger" *ngIf="form.get('acercade')?.touched && form.get('acercade')?.errors?.['required']">
+            <p class="text-danger" *ngIf="form.get('acercaDe')?.touched && form.get('acercaDe')?.errors?.['required']">
                 Una breve descripción personal es requerida.
             </p>
         </div>

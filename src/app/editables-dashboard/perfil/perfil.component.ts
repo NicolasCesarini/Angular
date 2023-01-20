@@ -34,12 +34,12 @@ export class PerfilComponent implements OnInit {
       linkedin:[''],
       email:['', [Validators.required]],
       clave:['', [Validators.required]],
-      acercade:['', [Validators.required]],
+      acercaDe:['', [Validators.required]],
     })
   }
 
   ngOnInit(): void { //vacio
-    this.cargarPersona();
+    this.cargarDetalle(1);
     this.form.reset();
   }
 
@@ -51,7 +51,7 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  cargarDetalle(id: number) {
+  cargarDetalle(id: 1) {
     this.sPersona.verPersona(id).subscribe(
       {
         next: (data) => {

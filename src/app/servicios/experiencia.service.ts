@@ -26,8 +26,8 @@ export class ExperienciaService {
     return this.httpClient.delete<Experiencia>(this.url + `borrar/${id}`)
   }
 
-  public updateExperiencia(experiencia: Experiencia): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', experiencia); //es igual al crear pero con put en vez de post
+  public updateExperiencia(id:number, experiencia: Experiencia): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, experiencia); //es igual al crear pero con put en vez de post
   }
 
 }

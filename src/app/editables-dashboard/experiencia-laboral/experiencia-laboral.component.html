@@ -1,23 +1,62 @@
-    <h4> Experiencia Laboral </h4>
-    <!--<button type="button" class="btn btn-primary">Guardar</button>-->
-<form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+<h4> Experiencia Laboral </h4>
+<form [formGroup]="form" name="experienciaForm">
+
+
+
+    <ul class="p-0">
+        <li *ngFor="let experiencia of experiencias" class="d-flex justify-content-between align-items-center m-1 ">
+            <span>{{experiencia.id}}. {{experiencia.puesto|uppercase}}</span>
+            <span class="d-flex justify-content-between gap-2">
+                <!--Lapiz para editar-->
+                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0"
+                    (click)="cargarDetalle(experiencia.id)">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <!--Boton para borrar-->
+                <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0"
+                    (click)="borrar(experiencia.id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </span>
+        </li>
+    </ul>
+    <!--Validacion condicional-->
+    <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+        <div class="input-group-prepend border-0">
+            <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+        </div>
+        <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+    </div>
+
+
     <div class="mb-3">
-        <label for="puesto" class="form-label">Título del Puesto</label>
-        <input type="text" class="form-control" id="puesto" formControlName="puesto" [(ngModel)]="puesto">
+        <label for="puesto" class="form-label">Puesto Laboral</label>
+        <input type="text" class="form-control" id="puesto" placeholder="campo obligatorio" formControlName="puesto"
+            [ngClass]="{'is-invalid': form.get('puesto')?.errors && form.get('puesto')?.touched, 'is-valid': form.get('puesto')?.errors && form.get('puesto')?.touched}">
+        <p class="text-danger" *ngIf="form.get('puesto')?.touched && form.get('puesto')?.errors?.['required']">
+            El Nombre del puesto es requerido.
+        </p>
     </div>
     <div class="mb-3">
         <label for="imgExperiencia" class="form-label">Imagen de la Empresa</label>
-        <input type="text" class="form-control" id="imgExperiencia" formControlName="imgExperiencia" [(ngModel)]="imgExperiencia">
+        <input type="text" class="form-control" id="imgExperiencia" placeholder="" formControlName="imgExperiencia">
     </div>
-    <div class="mb-3"> 
-        <label for="descripcionTrabajo" class="form-label">Descripción del Puesto</label>
-        <textarea class="form-control" id="descripcionTrabajo" formControlName="descripcionTrabajo" type="text" [(ngModel)]="descripcionTrabajo"></textarea>
-    </div>
-    
     <div class="mb-3">
-        <label for="anio" class="form-label">Años en el Empleo</label>
-        <input type="text" class="form-control" id="anio" formControlName="anio" [(ngModel)]="anio">
+        <label for="anio" class="form-label">Años en los que se realizó el empleo</label>
+        <input type="text" class="form-control" id="anio" placeholder="" formControlName="anio">
     </div>
-    <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <div class="mb-3">
+        <label for="descripcionTrabajo" class="form-label">Descripción del Trabajo realizado</label>
+        <textarea class="form-control" id="descripcionTrabajo" placeholder="campo obligatorio"
+            formControlName="descripcionTrabajo"
+            [ngClass]="{'is-invalid': form.get('descripcionTrabajo')?.errors && form.get('descripcionTrabajo')?.touched, 'is-valid': form.get('descripcionTrabajo')?.errors && form.get('descripcionTrabajo')?.touched}">
+        </textarea>
+        <p class="text-danger"
+            *ngIf="form.get('descripcionTrabajo')?.touched && form.get('descripcionTrabajo')?.errors?.['required']">
+            Una breve descripción personal es requerida.
+        </p>
+    </div>
+    <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>-->
+    <button class="btn btn-primary" (click)="guardar()" [disabled]="form.invalid">Guardar</button>
 </form>

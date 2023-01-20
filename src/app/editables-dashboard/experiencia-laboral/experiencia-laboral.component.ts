@@ -11,54 +11,105 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 export class ExperienciaLaboralComponent implements OnInit {
 
   form: FormGroup; // el form es una variable
-  imgExperiencia: string = '';
-  puesto: string = '';
-  anio: string = '';
-  descripcionTrabajo: string = '';
+  experiencias: Experiencia[] = [];
+  //imgExperiencia: string = '';
+  //puesto: string = '';
+  //anio: string = '';
+  //descripcionTrabajo: string = '';
    
 
   // Inyectar en el constructor el formBuilder
   constructor(private formBuilder: FormBuilder, private sExperiencia: ExperienciaService){  // el formBuilder es un alias
     // Creamos el grupo de controles para el formulario de login
     this.form= this.formBuilder.group({
+      id: [''],
       imgExperiencia:[''],
       puesto:['', [Validators.required]],
       anio:[''],
-      descripcionTrabajo:[''],
+      descripcionTrabajo:['', [Validators.required]],
     })
   }
 
   ngOnInit(): void { //vacio
-  }
-
-  //hacer los métodos
-  get Puesto(){
-    return this.form.get("puesto");
-  }
-
-  get Descripcion(){
-    return this.form.get("descripcionTrabajo");
-  }
-
-  //acá podria poner las validaciones
-  onCreate(): void{
-    const experiencia = new Experiencia(this.imgExperiencia, this.puesto, this.anio, this.descripcionTrabajo);
-    this.sExperiencia.agregarExperiencia(experiencia).subscribe(data=>{alert("Experiencia añadida")
-    window.location.reload();
-    });
-  }
-
-  limpiar():void{
+    this.cargarExperiencia();
     this.form.reset();
   }
 
-  onEnviar(event:Event){
-    event.preventDefault;
-    if (this.form.valid){
-      this.onCreate();
-    } else{
-      alert("fallo en la carga, intente nuevamente");
-      this.form.markAllAsTouched();
+  cargarExperiencia(): void {
+    this.sExperiencia.verExperiencias().subscribe(
+      data => {
+        this.experiencias = data;
+      }
+    )
+  }
+
+  cargarDetalle(id: number) {
+    this.sExperiencia.verExperiencia(id).subscribe(
+      {
+        next: (data) => {
+          this.form.setValue(data);
+        },
+        error: (e) => {
+          console.error(e)
+          alert("error al modificar")
+        },
+        complete: () => console.info('completar aquí')
+      }
+    )
+  }
+
+
+  guardar() {
+    
+    
+    let experiencia = this.form.value;
+
+    if (experiencia.id == '') {
+      this.sExperiencia.agregarExperiencia(experiencia).subscribe(
+        data => {
+          alert("Su nueva Experiencia fue añadida correctamente");
+          this.cargarExperiencia();
+          this.form.reset();
+        },
+        error => {
+          alert("Su nueva Experiencia fue añadida correctamente");
+          this.cargarExperiencia();
+          this.form.reset();
+          
+        }
+      )
+    } else {
+      this.sExperiencia.updateExperiencia(experiencia.id, experiencia).subscribe(
+        data => {
+          alert('Experiencia editada correctamente');
+          this.cargarExperiencia();
+          this.form.reset();
+        },
+        error => {
+          alert('Experiencia editada correctamente');
+          this.cargarExperiencia();
+          this.form.reset();
+        }
+      )
     }
   }
+
+  borrar(id: number) {
+    this.sExperiencia.borrarExperiencia(id).subscribe(
+      data => {
+        alert("se pudo eliminar satisfactoriamente");
+        this.cargarExperiencia();
+        this.form.reset();
+      },
+      error => {
+        alert("se pudo eliminar satisfactoriamente");
+        this.cargarExperiencia();
+        this.form.reset();
+      }
+    )
+  }
+
+
+
+
 }
