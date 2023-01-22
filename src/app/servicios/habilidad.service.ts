@@ -26,7 +26,7 @@ export class HabilidadService {
     return this.httpClient.delete<Habilidad>(this.url + `borrar/${id}`)
   }
 
-  public updateHabilidad(persona: Habilidad): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', persona); //es igual al crear pero con put en vez de post
+  public updateHabilidad(id:number, habilidad: Habilidad): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, habilidad); //es igual al crear pero con put en vez de post
   }
 }

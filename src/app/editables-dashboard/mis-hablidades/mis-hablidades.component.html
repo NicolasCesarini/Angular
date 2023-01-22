@@ -1,13 +1,46 @@
-    <h4> Habilidades </h4>
-    <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+<h4> Habilidades </h4>
+    <form [formGroup]="form" name="habilidadesForm">
+
+        <ul class="p-0">
+            <li *ngFor="let habilidad of habilidades" class="d-flex justify-content-between align-items-center m-1 ">
+              <span>{{habilidad.id}}. {{habilidad.nombre|uppercase}}</span>
+              <span class="d-flex justify-content-between gap-2">
+              <!--Lapiz para editar-->
+                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetalle(habilidad.id)">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <!--Boton para borrar-->
+                <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(habilidad.id)">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </span>
+            </li>
+          </ul>
+<!--Validacion condicional-->
+          <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+            <div class="input-group-prepend border-0">
+              <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+            </div>
+            <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+          </div>
+
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre de la Habilidad</label>
-            <input type="text" class="form-control" id="nombre" formControlName="nombre" [(ngModel)]="nombre">
+            <input type="text" class="form-control" id="nombre" placeholder="campo obligatorio" formControlName="nombre"
+                [ngClass]="{'is-invalid': form.get('nombre')?.errors && form.get('nombre')?.touched, 'is-valid': form.get('nombre')?.errors && form.get('nombre')?.touched}">
+            <p class="text-danger" *ngIf="form.get('nombre')?.touched && form.get('nombre')?.errors?.['required']">
+                El Nombre de la Habilidad es requerido.
+            </p>
         </div>
         <div class="mb-3">
-            <label for="porcentaje" class="form-label">Porcentaje de Aprendizaje</label>
-            <input type="text" class="form-control" id="porcentaje" formControlName="porcentaje" [(ngModel)]="porcentaje">
+            <label for="porcentaje" class="form-label">Porcentaje de la Habilidad</label>
+            <input type="text" class="form-control" id="porcentaje" placeholder="campo obligatorio" formControlName="porcentaje"
+                [ngClass]="{'is-invalid': form.get('porcentaje')?.errors && form.get('porcentaje')?.touched, 'is-valid': form.get('porcentaje')?.errors && form.get('porcentaje')?.touched}">
+            <p class="text-danger" *ngIf="form.get('porcentaje')?.touched && form.get('porcentaje')?.errors?.['required']">
+                El Porcentaje de la Habilidad es requerido.
+            </p>
         </div>
-        <button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
+        <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>-->
+        <button class="btn btn-primary" (click)="guardar()"[disabled]="form.invalid">Guardar</button>
+</form>
