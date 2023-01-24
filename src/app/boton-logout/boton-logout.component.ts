@@ -30,7 +30,7 @@ cerrarSesion(){
   alert("SESIÓN CERRADA");
 
   window.sessionStorage.removeItem;
-  //window.location.reload();
+  window.location.reload();
   this.ruta.navigate(['/']);
 }
 }

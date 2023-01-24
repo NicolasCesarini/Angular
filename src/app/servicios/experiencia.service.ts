@@ -7,7 +7,7 @@ import { Experiencia } from '../entidades/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  url='http://localhost:8080/experiencia/'
+  url='https://portfolio-backend-gzc8.onrender.com/experiencia/'
   constructor(private httpClient:HttpClient) { }
 
   public verExperiencias(): Observable<Experiencia[]>{ //importacion desde la entidad experiencia

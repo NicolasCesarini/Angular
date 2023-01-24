@@ -7,7 +7,7 @@ import { Persona } from '../entidades/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  url='http://localhost:8080/persona/'
+  url='https://portfolio-backend-gzc8.onrender.com/persona/'
   constructor(private httpClient:HttpClient) { }
 
   public verPersonas(): Observable<Persona[]>{ //importacion desde la entidad persona

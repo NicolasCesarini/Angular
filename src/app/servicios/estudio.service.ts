@@ -7,7 +7,7 @@ import { Estudio } from '../entidades/estudio';
   providedIn: 'root'
 })
 export class EstudioService {
-  url='http://localhost:8080/educacion/'
+  url='https://portfolio-backend-gzc8.onrender.com/educacion/'
   constructor(private httpClient:HttpClient) { }
 
   public verEducacion(): Observable<Estudio[]>{ //importacion desde la entidad persona

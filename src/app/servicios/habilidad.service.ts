@@ -7,7 +7,7 @@ import { Habilidad } from '../entidades/habilidad';
   providedIn: 'root'
 })
 export class HabilidadService {
-  url='http://localhost:8080/habilidad/'
+  url='https://portfolio-backend-gzc8.onrender.com/habilidad/'
   constructor(private httpClient:HttpClient) { }
 
   public verHabilidades(): Observable<Habilidad[]>{ //importacion desde la entidad persona
