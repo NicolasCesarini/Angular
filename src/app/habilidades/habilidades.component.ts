@@ -23,31 +23,4 @@ export class HabilidadesComponent implements OnInit {
     this.sHabilidad.verHabilidades().subscribe(data => {this.habilidades=data}); // uso el this porque esta fuera del método
   }
 
-  public borrar(id:number){
-    if(id != undefined){
-      this.sHabilidad.borrarHabilidad(id).subscribe(
-        data =>{
-          // alert("Habilidad eliminada correctamente)
-          this.cargarHabilidad();
-        }, err =>{
-          alert("No se pudo elmiminar la experiencia")
-        }
-      )
-    }
-  }
-
-  public  (id:number){
-    if(id != undefined){
-      this.sHabilidad.borrarHabilidad(id).subscribe(
-        data =>{
-          // alert("Habilidad eliminada correctamente)
-          this.cargarHabilidad();
-        }, err =>{
-          alert("No se pudo elmiminar la experiencia")
-        }
-      )
-    }
-  }
-
-
 }

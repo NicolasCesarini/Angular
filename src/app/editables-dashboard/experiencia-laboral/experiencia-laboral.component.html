@@ -27,8 +27,7 @@
         </div>
         <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
     </div>
-
-
+    
     <div class="mb-3">
         <label for="puesto" class="form-label">Puesto Laboral</label>
         <input type="text" class="form-control" id="puesto" placeholder="campo obligatorio" formControlName="puesto"
@@ -42,6 +41,14 @@
         <input type="text" class="form-control" id="imgExperiencia" placeholder="" formControlName="imgExperiencia">
     </div>
     <div class="mb-3">
+        <label for="empresa" class="form-label">Empresa en la que se realizo el trabajo</label>
+        <input type="text" class="form-control" id="empresa" placeholder="campo obligatorio" formControlName="empresa"
+            [ngClass]="{'is-invalid': form.get('empresa')?.errors && form.get('empresa')?.touched, 'is-valid': form.get('empresa')?.errors && form.get('empresa')?.touched}">
+        <p class="text-danger" *ngIf="form.get('empresa')?.touched && form.get('empresa')?.errors?.['required']">
+            El Nombre dela empresa es requerido.
+        </p>
+    </div>
+    <div class="mb-3">
         <label for="anio" class="form-label">Años en los que se realizó el empleo</label>
         <input type="text" class="form-control" id="anio" placeholder="" formControlName="anio">
     </div>
@@ -53,7 +60,7 @@
         </textarea>
         <p class="text-danger"
             *ngIf="form.get('descripcionTrabajo')?.touched && form.get('descripcionTrabajo')?.errors?.['required']">
-            Una breve descripción personal es requerida.
+            Una descripción del trabajo es requerida.
         </p>
     </div>
     <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>

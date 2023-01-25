@@ -22,10 +22,13 @@ import { PerfilComponent } from './editables-dashboard/perfil/perfil.component';
 import { ExperienciaLaboralComponent } from './editables-dashboard/experiencia-laboral/experiencia-laboral.component';
 import { EstudioComponent } from './editables-dashboard/estudio/estudio.component';
 import { MisHablidadesComponent } from './editables-dashboard/mis-hablidades/mis-hablidades.component';
+import { ProyectoComponent } from './proyecto/proyecto.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonaService } from './servicios/persona.service';
 import { InterceptorService } from './servicios/interceptor.service';
+import { MisProyectosComponent } from './editables-dashboard/mis-proyectos/mis-proyectos.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { InterceptorService } from './servicios/interceptor.service';
     PerfilComponent,
     ExperienciaLaboralComponent,
     EstudioComponent,
-    MisHablidadesComponent
+    MisHablidadesComponent,
+    ProyectoComponent,
+    MisProyectosComponent
   ],
   imports: [
     BrowserModule,

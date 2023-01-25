@@ -1,0 +1,72 @@
+<h4> Proyectos </h4>
+<form [formGroup]="form" name="proyectoForm">
+
+
+    <ul class="p-0">
+        <li *ngFor="let proyecto of proyectos" class="d-flex justify-content-between align-items-center m-1 ">
+            <span>{{proyecto.id}}. {{proyecto.nombreProyecto|uppercase}}</span>
+            <span class="d-flex justify-content-between gap-2">
+                <!--Lapiz para editar-->
+                <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0"
+                    (click)="cargarDetalle(proyecto.id)">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <!--Boton para borrar-->
+                <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0"
+                    (click)="borrar(proyecto.id)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </span>
+        </li>
+    </ul>
+    <!--Validacion condicional-->
+    <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+        <div class="input-group-prepend border-0">
+            <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+        </div>
+        <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+    </div>
+    
+    <div class="mb-3">
+        <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
+        <input type="text" class="form-control" id="nombreProyecto" placeholder="campo obligatorio" formControlName="nombreProyecto"
+            [ngClass]="{'is-invalid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched, 'is-valid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched}">
+        <p class="text-danger" *ngIf="form.get('nombreProyecto')?.touched && form.get('nombreProyecto')?.errors?.['required']">
+            El Nombre del nombre del proyecto es requerido.
+        </p>
+    </div>
+    <div class="mb-3">
+        <label for="imgProyecto" class="form-label">Imagen del Proyecto o Institución</label>
+        <input type="text" class="form-control" id="imgProyecto" placeholder="" formControlName="imgProyecto">
+    </div>
+    <div class="mb-3">
+        <label for="institucion" class="form-label">Institución para la que se realizó el Proyecto</label>
+        <input type="text" class="form-control" id="institucion" placeholder="" formControlName="institucion">
+    </div>
+    <div class="mb-3">
+        <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
+        <input type="text" class="form-control" id="nombreProyecto" placeholder="campo obligatorio" formControlName="nombreProyecto"
+            [ngClass]="{'is-invalid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched, 'is-valid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched}">
+        <p class="text-danger" *ngIf="form.get('nombreProyecto')?.touched && form.get('nombreProyecto')?.errors?.['required']">
+            El nombre proyecto es requerido.
+        </p>
+    </div>
+    <div class="mb-3">
+        <label for="anio" class="form-label">Años en los que se realizó el empleo</label>
+        <input type="text" class="form-control" id="anio" placeholder="" formControlName="anio">
+    </div>
+    <div class="mb-3">
+        <label for="descripcionProyecto" class="form-label">Descripción del Proyecto realizado</label>
+        <textarea class="form-control" id="descripcionProyecto" placeholder="campo obligatorio"
+            formControlName="descripcionProyecto"
+            [ngClass]="{'is-invalid': form.get('descripcionProyecto')?.errors && form.get('descripcionProyecto')?.touched, 'is-valid': form.get('descripcionProyecto')?.errors && form.get('descripcionProyecto')?.touched}">
+        </textarea>
+        <p class="text-danger"
+            *ngIf="form.get('descripcionProyecto')?.touched && form.get('descripcionProyecto')?.errors?.['required']">
+            Una descripción del trabajo es requerida.
+        </p>
+    </div>
+    <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>-->
+    <button class="btn btn-primary" (click)="guardar()" [disabled]="form.invalid">Guardar</button>
+</form>

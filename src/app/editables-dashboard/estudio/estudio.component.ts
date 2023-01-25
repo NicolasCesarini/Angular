@@ -23,8 +23,10 @@ export class EstudioComponent implements OnInit {
     this.form= this.formBuilder.group({
       id: [''],
       imgCurso:[''],
+      institucion:['', [Validators.required]],
       tituloCurso:['', [Validators.required]],
       anio:[''],
+      descripcionEducacion:[''],
     })
   }
 

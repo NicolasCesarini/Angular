@@ -24,6 +24,7 @@ export class ExperienciaLaboralComponent implements OnInit {
     this.form= this.formBuilder.group({
       id: [''],
       imgExperiencia:[''],
+      empresa:['', [Validators.required]],
       puesto:['', [Validators.required]],
       anio:[''],
       descripcionTrabajo:['', [Validators.required]],
