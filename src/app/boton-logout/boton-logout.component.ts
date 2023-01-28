@@ -19,7 +19,7 @@ export class BotonLogoutComponent implements OnInit {
       });
       if (sessionStorage.getItem('currentUser') == null){
         this.modoEdit = false;
-      }else if (sessionStorage.getItem('currentUser') == null){
+      }else if (sessionStorage.getItem('currentUser') == "null"){
         this.modoEdit = false;
       }
   }
@@ -30,7 +30,8 @@ cerrarSesion(){
   alert("SESIÓN CERRADA");
 
   window.sessionStorage.removeItem;
-  //window.location.reload();
+  
   this.ruta.navigate(['/']);
+  window.location.reload();
 }
 }
