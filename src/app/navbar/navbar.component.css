@@ -3,3 +3,12 @@
     --bs-list-group-bg: transparent;
     --bs-list-group-border-color: transparent;
 }
+
+.main-logo {
+    display: flexbox;
+    margin: 0;
+    padding: 0;
+    height: 5em;
+    width: 8em;
+    float: left;
+}
