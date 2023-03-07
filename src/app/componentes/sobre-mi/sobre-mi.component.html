@@ -1,0 +1,19 @@
+<!-- Empieza la sección sobre mí -->
+<section id="sobre_mi">
+    <div class="container text-center">
+        <div class="row"  *ngFor="let persona of personas">
+            <div class="col-3">
+                <img src="{{persona.imgPerfil}}" class="rounded-circle w-75" alt="foto de perfil" tittle="...">
+                <h2><span class="text-secondary">Nombre: {{persona.nombre}}</span></h2>
+                <h2><span class="text-secondary">Apellido: {{persona.apellido}}</span></h2>
+                <h2><span class="text-secondary">Edad: {{persona.edad}}</span></h2>
+            </div>
+            <div class="col-9 mt-4">
+                <h5><span class="text-secondary">{{persona.acercaDe}}
+                </span></h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>

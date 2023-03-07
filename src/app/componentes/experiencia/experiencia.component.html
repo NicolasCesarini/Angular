@@ -1,0 +1,21 @@
+<!-- Empieza la sección experiencia -->
+<section id="experiencia" class="experiencia">
+    <div class="container text-center seccion">
+        <h2><span class="text-secondary">Experiencia</span></h2>
+        <div class="row"  *ngFor="let experiencia of experiencias">
+            <div class="col-3">
+                <img src="{{experiencia.imgExperiencia}}" class="rounded-circle w-75" alt="..." tittle="...">
+                <h2><span class="text-secondary">{{experiencia.puesto}}</span></h2>
+                <h2><span class="text-secondary">{{experiencia.empresa}}</span></h2>
+                <h2><span class="text-secondary">{{experiencia.anio}}</span></h2>
+                <br>
+            </div>
+            <div class="col-9 mt-4">
+                <h5><span class="text-secondary">{{experiencia.descripcionTrabajo}}
+                </span></h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>

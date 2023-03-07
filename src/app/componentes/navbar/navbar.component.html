@@ -1,0 +1,49 @@
+<!--<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/img/Logo Argentina Programa.png" class="main-logo" alt="Logo de Argentina Programa" >
+        </a>
+        <ul class="list-group list-group-horizontal">
+            <app-redes></app-redes>
+            <app-boton-login *ngIf="!logueado"></app-boton-login>
+            <app-boton-logout *ngIf="logueado"></app-boton-logout>
+        </ul>
+    </div>
+</nav>-->
+
+<nav class="navbar navbar-expand-lg bg-primary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/img/Logo Argentina Programa.png" class="main-logo" alt="Logo de Argentina Programa">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Secciones
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/#sobre_mi">Sobre Mí</a></li>
+            <li><a class="dropdown-item" href="/#experiencia">Experiencia</a></li>
+            <li><a class="dropdown-item" href="/#educacion">Educación</a></li>
+            <li><a class="dropdown-item"  href="/#habilidades">Habilidades</a></li>
+            <li><a class="dropdown-item" href="/#proyecto">Proyectos</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Descargar CV</a></li>
+          </ul>
+        </li>
+        <ul class="list-group list-group-horizontal botones-nav">
+          <app-redes></app-redes>
+          <app-boton-login *ngIf="!logueado"></app-boton-login>
+          <app-boton-logout *ngIf="logueado"></app-boton-logout>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,21 @@
+<!-- Empieza la sección eduación -->
+<section id="educacion" class="educacion">
+    <div class="container text-center seccion">
+        <h2><span class="text-secondary">Educación</span></h2>
+        <div class="row"  *ngFor="let estudio of estudios">
+            <div class="col-3">
+                <img src="{{estudio.imgCurso}}" class="rounded-circle w-75" alt="..." tittle="...">
+                <h2><span class="text-secondary">{{estudio.tituloCurso}}</span></h2>
+                <h2><span class="text-secondary">{{estudio.institucion}}</span></h2>
+                <h2><span class="text-secondary">{{estudio.anio}}</span></h2>
+                <br>
+            </div>
+            <div class="col-9 mt-4">
+                <h5><span class="text-secondary">{{estudio.descripcionEducacion}}
+                </span></h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>

@@ -1,0 +1,20 @@
+.list-group{
+    /* el --bs-list-group-bg lo saque con el inspeccionador */
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-color: transparent;
+}
+
+.main-logo {
+    display: flexbox;
+    margin: 0;
+    padding: 0;
+    height: 5em;
+    width: 8em;
+    float: left;
+}
+
+.botones-nav{
+    display: flexbox;
+    position: absolute;
+    right: 0;
+}
