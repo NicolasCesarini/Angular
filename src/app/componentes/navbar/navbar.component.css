@@ -13,8 +13,17 @@
     float: left;
 }
 
-.botones-nav{
-    display: flexbox;
-    position: absolute;
-    right: 0;
+/* .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.botones-nav {
+    display: flex;
+    margin-inline: 1rem 0;
+    align-items: center;
+    justify-content: right;
+    height: max-content;
+    margin-bottom: 0;
 }

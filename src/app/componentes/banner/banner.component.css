@@ -1,18 +1,16 @@
 .banner{
-    margin-top: 8.8rem;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100%;
-    object-fit: cover;
-    
+
 }
 #img-banner{
     max-height: 15rem;
+    object-fit: cover;   
+    width: 100%;
 }
 
-/* @media screen and (min-width:768px) {
+@media screen and (min-width:768px) {
     #img-banner{
         max-height: 20rem;
     }
-} */
+}

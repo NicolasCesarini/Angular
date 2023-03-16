@@ -32,6 +32,14 @@
         </p>
     </div>
     <div class="mb-3">
+        <label for="imgBanner" class="form-label">Imagen de Banner</label>
+        <input type="text" class="form-control" id="imgBanner" placeholder="campo obligatorio" formControlName="imgBanner"
+            [ngClass]="{'is-invalid': form.get('imgBanner')?.errors && form.get('imgBanner')?.touched, 'is-valid': form.get('imgBanner')?.errors && form.get('imgBanner')?.touched}">
+        <p class="text-danger" *ngIf="form.get('imgBanner')?.touched && form.get('imgBanner')?.errors?.['required']">
+            La imagen de banner es requerida.
+        </p>
+    </div>
+    <div class="mb-3">
         <label for="linkCV" class="form-label">Link de CV</label>
         <input type="text" class="form-control" id="linkCV" placeholder="campo obligatorio" formControlName="linkCV"
             [ngClass]="{'is-invalid': form.get('linkCV')?.errors && form.get('linkCV')?.touched, 'is-valid': form.get('linkCV')?.errors && form.get('linkCV')?.touched}">

@@ -30,6 +30,7 @@ export class PerfilComponent implements OnInit {
       apellido:['', [Validators.required]],
       edad:[''],
       imgPerfil:['', [Validators.required]],
+      imgBanner:['', [Validators.required]],
       linkCV:['', [Validators.required]],
       email:['', [Validators.required]],
       clave:['', [Validators.required]],
