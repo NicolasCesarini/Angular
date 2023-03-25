@@ -1,0 +1,57 @@
+<h4> Redes </h4>
+<form [formGroup]="form" name="redesForm">
+
+  <ul class="p-0">
+    <li *ngFor="let red of redes" class="d-flex justify-content-between align-items-center m-1 ">
+      <span>{{red.id}}. {{red.red|uppercase}}</span>
+      <span class="d-flex justify-content-between gap-2">
+        <!--Lapiz para editar-->
+        <button type="button" class="btn btn-sm btn-outline-success pl-1 pr-1 m-0" (click)="cargarDetalle(red.id)">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <!--Boton para borrar-->
+        <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(red.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </span>
+    </li>
+  </ul>
+  <!--Validacion condicional-->
+  <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+    </div>
+    <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="red" class="form-label">Nombre de la Red Social</label>
+    <input type="text" class="form-control" id="red" placeholder="campo obligatorio" formControlName="red"
+      [ngClass]="{'is-invalid': form.get('red')?.errors && form.get('red')?.touched, 'is-valid': form.get('red')?.errors && form.get('red')?.touched}">
+    <p class="text-danger" *ngIf="form.get('red')?.touched && form.get('red')?.errors?.['required']">
+      El Nombre de la Red es requerido.
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="link" class="form-label">Link de la Red Social</label>
+    <input type="text" class="form-control" id="link" placeholder="campo obligatorio" formControlName="link"
+      [ngClass]="{'is-invalid': form.get('link')?.errors && form.get('link')?.touched, 'is-valid': form.get('link')?.errors && form.get('link')?.touched}">
+    <p class="text-danger" *ngIf="form.get('link')?.touched && form.get('link')?.errors?.['required']">
+      El link de la Red Social es requerido.
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="color" class="form-label">Color del ícono de la Red Social</label>
+    <input type="text" class="form-control" id="color" placeholder="campo obligatorio (Escribir color en ingles)"
+      formControlName="color"
+      [ngClass]="{'is-invalid': form.get('color')?.errors && form.get('color')?.touched, 'is-valid': form.get('color')?.errors && form.get('color')?.touched}">
+    <p class="text-danger" *ngIf="form.get('color')?.touched && form.get('color')?.errors?.['required']">
+      El color de la Red Social es requerido.
+    </p>
+  </div>
+  <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>-->
+  <button class="btn btn-primary" (click)="guardar()" [disabled]="form.invalid">Guardar</button>
+</form>

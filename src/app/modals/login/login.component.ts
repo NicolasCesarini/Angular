@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   clave = '';
   //authService: any;
 
-  persona: Persona = new Persona("", "", "", "", "", "", "", "", "", "");
+  persona: Persona = new Persona("", "", "", "", "", "", "", "", "");
 
   // Inyectar en el constructor el formBuilder
   constructor(private ruta: Router, private formBuilder: FormBuilder, private autService: AutenticationService){  // el formBuilder es un alias

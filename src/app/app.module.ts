@@ -4,30 +4,31 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { EducacionComponent } from './educacion/educacion.component';
-import { ExperienciaComponent } from './experiencia/experiencia.component';
-import { HabilidadesComponent } from './habilidades/habilidades.component';
-import { RedesComponent } from './redes/redes.component';
-import { SobreMiComponent } from './sobre-mi/sobre-mi.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import { HabilidadesComponent } from './componentes/habilidades/habilidades.component';
+import { RedesComponent } from './componentes/redes/redes.component';
+import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { LoginComponent } from './modals/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard-page/dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
-import { IndexComponent } from './index/index.component';
-import { NavbarDashboardComponent } from './navbar-dashboard/navbar-dashboard.component';
-import { BotonLoginComponent } from './boton-login/boton-login.component';
-import { BotonLogoutComponent } from './boton-logout/boton-logout.component';
-import { BotonesDashboardComponent } from './botones-dashboard/botones-dashboard.component';
-import { PerfilComponent } from './editables-dashboard/perfil/perfil.component';
-import { ExperienciaLaboralComponent } from './editables-dashboard/experiencia-laboral/experiencia-laboral.component';
-import { EstudioComponent } from './editables-dashboard/estudio/estudio.component';
-import { MisHablidadesComponent } from './editables-dashboard/mis-hablidades/mis-hablidades.component';
-import { ProyectoComponent } from './proyecto/proyecto.component';
+import { IndexComponent } from './componentes/index/index.component';
+import { BotonLoginComponent } from './componentes/boton-login/boton-login.component';
+import { BotonLogoutComponent } from './componentes/boton-logout/boton-logout.component';
+import { BotonesDashboardComponent } from './dashboard-page/botones-dashboard/botones-dashboard.component';
+import { PerfilComponent } from './dashboard-page/editables-dashboard/perfil/perfil.component';
+import { ExperienciaLaboralComponent } from './dashboard-page/editables-dashboard/experiencia-laboral/experiencia-laboral.component';
+import { EstudioComponent } from './dashboard-page/editables-dashboard/estudio/estudio.component';
+import { MisHablidadesComponent } from './dashboard-page/editables-dashboard/mis-hablidades/mis-hablidades.component';
+import { ProyectoComponent } from './componentes/proyecto/proyecto.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonaService } from './servicios/persona.service';
 import { InterceptorService } from './servicios/interceptor.service';
-import { MisProyectosComponent } from './editables-dashboard/mis-proyectos/mis-proyectos.component';
+import { MisProyectosComponent } from './dashboard-page/editables-dashboard/mis-proyectos/mis-proyectos.component';
+import { RedComponent } from './dashboard-page/editables-dashboard/red/red.component';
+import { BannerComponent } from './componentes/banner/banner.component';
 
 
 @NgModule({
@@ -43,7 +44,6 @@ import { MisProyectosComponent } from './editables-dashboard/mis-proyectos/mis-p
     DashboardComponent,
     ErrorComponent,
     IndexComponent,
-    NavbarDashboardComponent,
     BotonLoginComponent,
     BotonLogoutComponent,
     BotonesDashboardComponent,
@@ -52,7 +52,9 @@ import { MisProyectosComponent } from './editables-dashboard/mis-proyectos/mis-p
     EstudioComponent,
     MisHablidadesComponent,
     ProyectoComponent,
-    MisProyectosComponent
+    MisProyectosComponent,
+    RedComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

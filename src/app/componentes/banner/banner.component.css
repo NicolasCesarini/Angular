@@ -1,0 +1,16 @@
+.banner{
+    display: flex;
+    width: 100%;
+
+}
+#img-banner{
+    max-height: 15rem;
+    object-fit: cover;   
+    width: 100%;
+}
+
+@media screen and (min-width:768px) {
+    #img-banner{
+        max-height: 20rem;
+    }
+}
