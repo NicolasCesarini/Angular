@@ -7,3 +7,14 @@ i.fa-solid.fa-user.fa-2xl:hover{
     transition: transform 0.3s ease-in-out;
     transform: scale(1.5);
 }
+
+.boton{
+    padding:.5rem 1rem;
+}
+
+
+@media screen and (min-width:768px){
+    .boton{
+        padding:.5rem;
+    }
+}

@@ -26,18 +26,4 @@ export class SobreMiComponent implements OnInit {
 
 
 
-  //public crearPersona(persona: Persona): Observable<any>{
-  //  return this.httpClient.post<any>(this.url + 'new', persona); //eso es por el RequestBody
-  //}
-
-  //public borrarPersona(id: number): Observable<Persona>{
-    //return this.httpClient.delete<Persona>(this.url + `delete/${id}`)
-  //}
-
-
-
-
-
-
-
 }

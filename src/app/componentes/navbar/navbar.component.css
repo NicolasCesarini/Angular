@@ -1,3 +1,27 @@
+.navbar{
+    padding: 0.7rem;
+}
+
+.redes-horizontal{
+    display:flex;
+}
+
+
+/* @media screen and (min-width: 768px) {
+    .navbar{
+    padding: 0 0.7rem;
+    }
+    .navbar-collapse{
+        display: flex;
+        justify-content: right;
+    }
+    
+} */
+
+
+
+
+
 .list-group{
     /* el --bs-list-group-bg lo saque con el inspeccionador */
     --bs-list-group-bg: transparent;
@@ -5,25 +29,16 @@
 }
 
 .main-logo {
-    display: flexbox;
-    margin: 0;
-    padding: 0;
+    display: flex;
     height: 5em;
     width: 8em;
-    float: left;
 }
 
-/* .navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
-
-.botones-nav {
+/* .botones-nav {
     display: flex;
     margin-inline: 1rem 0;
     align-items: center;
     justify-content: right;
     height: max-content;
     margin-bottom: 0;
-}
+} */

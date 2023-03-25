@@ -44,14 +44,6 @@
         <input type="text" class="form-control" id="institucion" placeholder="" formControlName="institucion">
     </div>
     <div class="mb-3">
-        <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
-        <input type="text" class="form-control" id="nombreProyecto" placeholder="campo obligatorio" formControlName="nombreProyecto"
-            [ngClass]="{'is-invalid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched, 'is-valid': form.get('nombreProyecto')?.errors && form.get('nombreProyecto')?.touched}">
-        <p class="text-danger" *ngIf="form.get('nombreProyecto')?.touched && form.get('nombreProyecto')?.errors?.['required']">
-            El nombre proyecto es requerido.
-        </p>
-    </div>
-    <div class="mb-3">
         <label for="anio" class="form-label">Años en los que se realizó el empleo</label>
         <input type="text" class="form-control" id="anio" placeholder="" formControlName="anio">
     </div>
@@ -64,6 +56,14 @@
         <p class="text-danger"
             *ngIf="form.get('descripcionProyecto')?.touched && form.get('descripcionProyecto')?.errors?.['required']">
             Una descripción del trabajo es requerida.
+        </p>
+    </div>
+    <div class="mb-3">
+        <label for="linkProyecto" class="form-label">Link del Proyecto</label>
+        <input type="text" class="form-control" id="linkProyecto" placeholder="campo obligatorio" formControlName="linkProyecto"
+            [ngClass]="{'is-invalid': form.get('linkProyecto')?.errors && form.get('linkProyecto')?.touched, 'is-valid': form.get('linkProyecto')?.errors && form.get('linkProyecto')?.touched}">
+        <p class="text-danger" *ngIf="form.get('linkProyecto')?.touched && form.get('linkProyecto')?.errors?.['required']">
+            El Link del Proyecto es requerido.
         </p>
     </div>
     <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>

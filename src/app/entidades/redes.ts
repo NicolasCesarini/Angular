@@ -3,12 +3,10 @@ export class Redes {
     id?: number;
     red: string;
     link: string;
-    color: string;
 
     //constructor con parámetros
-    constructor(red: string, link: string, color: string){
+    constructor(red: string, link: string){
         this.red = red;
-        this.link = link;
-        this.color = color;
+        this.link = link
     }
 }

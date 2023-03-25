@@ -29,6 +29,7 @@ import { InterceptorService } from './servicios/interceptor.service';
 import { MisProyectosComponent } from './dashboard-page/editables-dashboard/mis-proyectos/mis-proyectos.component';
 import { RedComponent } from './dashboard-page/editables-dashboard/red/red.component';
 import { BannerComponent } from './componentes/banner/banner.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { BannerComponent } from './componentes/banner/banner.component';
     ProyectoComponent,
     MisProyectosComponent,
     RedComponent,
-    BannerComponent
+    BannerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
