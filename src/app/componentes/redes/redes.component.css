@@ -1,11 +1,25 @@
+.nav-link{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
 i.fa-brands.fa-facebook.fa-2xl,
 i.fa-brands.fa-linkedin.fa-2xl,
-i.fa-brands.fa-instagram.fa-2xl{
+i.fa-brands.fa-instagram.fa-2xl,
+i.fa-brands.fa-github.fa-2xl,
+i.fa-solid.fa-envelope.fa-2xl{
     color: rgb(255, 255, 255);
 }
 
 i.fa-brands.fa-facebook.fa-2xl:hover{
     color:rgb(2, 2, 253);
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.5);
+}
+
+i.fa-brands.fa-github.fa-2xl:hover,
+i.fa-solid.fa-envelope.fa-2xl:hover{
+    color:rgb(0, 0, 0);
     transition: transform 0.3s ease-in-out;
     transform: scale(1.5);
 }
@@ -39,3 +53,10 @@ i.fa-solid.fa-user-lock.fa-2xl:hover{
     --bs-list-group-bg: transparent;
     --bs-list-group-border-color: transparent;
 }
+
+
+
+
+
+
+

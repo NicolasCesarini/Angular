@@ -21,7 +21,6 @@ constructor(private formBuilder: FormBuilder, private sRedes: RedesService){  //
     id: [''],
     red:['', [Validators.required]],
     link:['', [Validators.required]],
-    color:['', [Validators.required]],
   })
 }
 

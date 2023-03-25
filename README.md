@@ -1,3 +1,17 @@
+# Proyecto Portfolio Angular
+Este proyecto consiste en la realización de un Portfolio como medio de aprobación para el curso de Desarrollador Web Full Stack dictado por Argentina Programa. En este repositorio se encuentra el Front-End del proyecto. El Back-End del mismo se encuantra en el siguiente repositorio: https://github.com/NicolasCesarini/porfolioBackEnd. Por último el portfolio web se enecuntra en la siguiente dirección: https://portfolio-frontend-nicolas.web.app/.
+
+
+## Tecnologías usadas:
+•	Angular[Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+•	FontAwsome
+•	Bootstrap5
+
+
+## Contenido y funcionamiento:
+
+Al acceder al portfolio uno puede observar los diferentes apartados de este ya sea haciendo scroll en la página o accediendo a traves del menú de secciones a cada una de estas. También en la barra de navegación se encuentran diferentes redes para poder contactarse conmigo.
+
 # ProyectoAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
@@ -26,118 +40,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-# Para poder ver lo que hago pongo una nueva consola y coloco ng serve
-# Entro a la página para ver que esta funcionando
-# No elimino la Terminal porque se me cierra todo
-# La carpeta node_modules por defecto no se sube a Github por lo que pesa
-# Dentro de la carpeta src va a estar toda mi aplicación
-# En el html la etiqueta app root hace referencia a app.component
-# En app.component.html se puede borrar todo menos <router-outlet></router-outlet> que es para hacer los enlaces de página a página
-# Instalo Angular Schematics (dicen que me va a salvar el alma)
-# Si no aparece el botón Angular de Angular Schematics en la barra de la izquierda tengo que desinstalar y volver a instalar Angular Schematics hasta que aparezca
-# Botón derecho en la carpeta src y pongo en generar componente Angular
-# Llamo al componente navbar
-# Cada parte de mi maqueta tiene que ser un componente (para eso es que es mejor tener la maqueta con el código comentado)
-# Cada componente tiene su propio css de estilos. Ese css es solo para ese componente en particular. Si son estilos css generales no van en el estilo general de cada componente
-# Angular es para front-end (es un Framework)
-# No hay manera de errarle a los datos cuando se ponen cada una de las partes
-# Con el routing lo que puedo hacer es que cosas que se repitan solo las hago una vez y las routeo en cada página que quiero que se utilice. Si quiero cambiar algo lo cambio en el componente una sola vez y se cambia en cada página que tenga el componente routeado
-# Ángular es (SPA Aplicación de página única) y no MPA (Aplicación de páginas multiples)
-# Muestra pedacitos de la página (no se repiten las cosas) (es mucho más liviana que la MPA)
-# Empiezo lectura de Módulo 3 (Angular)
-# En este módulo se pasa el html y css cortado en pedacitos a Ángular
-# En el caso de tener que borrar el proyecto para hacer un nuevo proyecto me posiciono en la carpeta en Visual Studio y pongo en la terminal: ng new NombreDelPortfolio
-# Vamos a pasar la navbar
-# Me voy a app.component.html
-# Que ahí esta lo que se ve en la página de muestra y se borra todo lo que hay ahí
-# Me veo el selector del component ts
-# Pongo en el html del componente navbar la parte de html de la navbar
-# Pongo las librerias de bootstrap y fontawesome en el html general (index)
-# Puse las carpetas de assets anterior en las del proyecto Angular con el explorador de windows
-# Al boton de user le falta el modal, por lo tanto creo un componente del modal
-# Para hacer los modales combiene hacer todos en la misma carpeta, por lo que se genera una carpeta en src/app que se llame modals y dentro de ahi el componente con Agular Schematics llamado login (para el modal del login)
-# Como cambie el componente de lugar en el archivo app.module.ts y algo habré hecho mal al crear el componente en la carpeta modals cambio la ruta del import de login del archivo app.module.ts para que no quede el que etsba en la carpeta raíz
-# Como no funcionaba el modal me fijo que en el html de app.component no esta enlazada como la navbar con <app-login></app-login> que es con el selector que se encuentra en login.component.ts
-# Como el modal es del navbar lo pongo en el html del navbar y no en el html de app.component (Esto se lo llama hacer Layout)
-# Para probar hago un Layout tambien de redes (Esto sirve mucho para el backend)
-# Me fijo el selector en redes.component.ts de la carpeta redes entonces en la navbar donde estaba el html de las redes pongo <app-redes></app-redes>
-# Los estilos de las clases que son compartidas los ponenmos en app.componen.css o en styles.css, si hacemos lo ultimo hay que enlazar los styles.css en el index.html
-# Cómo en Ángular se carga solo lo que necesitas en el momento que lo necesitas, en cambio en html se llama todo junto.
-# Además sirve para que sea mas facil programar por llamar cada componente por separado
-# Ahora que pase la página a Ángular me fijo si puedo hacer el routing para el Dashboard, voy a intentar hacerlo con el Angular Schematics
-# Pongo en Ángular Schematics grar módulo y lo llamo routing 
-# ng generate module app-routing --flat --module=app
-# Para hacer la rutas
-# Como daba error elimine el archivo y lo volvi a correr la línea
-# Agrego <router-outlet></router-outlet> al final del html de app.component
-# Agrego import { RouterModule, Routes } from '@angular/router'; debajo de los imports que había en app-routing.module.ts
-# Luego debo incorporar ahí todos los componentes
-# En @ngModule imports pongo: abajo de CommonModule pongo RouterModule.forRoot(routes)
-# Luego abajo del imports pongo una coma detras del ] de imports y agrego una linea que diga
-# exports: [RouterModule]
-# Abajo de import { RouterModule, Routes } from '@angular/router'; escribo: const routes: Routes = [];
-# Ahí adentro quiero que quede: 
-# const routes: Routes = [
-    {path: 'route', component:RouteComponent},
-    {path: '', redirectTo: '/', pathMatch: 'full'},
-    {path: '**', component: ErrorComponent}
-];
-# {path: 'route', component:RouteComponent}, es la ruta que sigue el usuario
-# Es para hacer lo que quiera que haga el usuario.
-# Como yo quiero que el usuario cambie el Dashboard cambio 'route' por 'dashboard'
-# y cambio RouteComponent por DashboardComponent
-# Cómo marca error ErrorComponent y DashboardComponent por no existir estos componentes procedo a crearlos
-# Cómo sigue dando error me fijo que esten importados en app.module.ts
-# Me fijo que borrando la ultima letra de los componentes Dashboard y Error en app-roting.module.ts
-# e importandolos se soluciona el problema por lo que agrego:
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ErrorComponent } from './error/error.component';
-# Luego voy a abrir un componente que se llame intro y le pongo todo lo que tenía el app.component.html y el app.component.css en ese componente y en app.component.html solo dejo <router-outlet></router-outlet>
-# En Ángular debo cambiar los botones de las redes en vez de con href usamos
-# Hago el dashboard en Ángular
-# Agrego un componente index para poner la página (en vez de intro)
-# Luego este componente lo importo en app-routing.module.ts como los componentes Dahsboard o Error anteriores
-# Tengo que poner en dashboard una navbar distinta por el iconito de cerrar perfil
-# Hago la navegación interna de la página con <a routerLink="/">Enlace</a>, las redes con href como antes
-# Voy a usar ng if dentro del componente redes
-# Un proyecto de Ángular empieza por app
-# Con alt+shift+a puedo comentar en visual studio
-# Ángular no toma javascript, hay que pasarlo a Typescript. Ángular solo entiende javascript de bootstrap porque bootstrap ya tiene un traductor a Typescript
-# los ngif o ngfor se pueden usar con * o con [], es preferible usar * porque son menos líneas de código
-# Un servicio es una cosa que hace de nexo entre el json y el componente
-# Voy a crear un json con todos los datos y un servicio al cual le mando todos lo componentes para que los componentes puedan leer el servicio y traer todos los datos que  quiera mostrar
-# Un servicio se puede inyectar dentro de un componente para que funcione, y se inyecta en la parte de la lógica (.ts)
-# Hago una carpeta dentro de app llamada servicios y creo un servicio llamado portfolio
-# Como el servicio se tiene que comunicar con un json lo creo en assets/json llamado portfolio.json
-# Armo el json de la misma manera que esta el de VisualStudio o el que halla en el proyecto
-# En el json el único o último dato no lleva com (,)
-# Para hacer los datos de educación hago un array de objetos (para poner más de una educación)
-# [{},{}] Entre [] va el array y los {} son objetos
-# Si llegase a tener un error en el json puedo usar en https://www.freeformatter.com/json-validator.html
-# Ahora empiezo usando los datos del nombre en sobre mi en el componente con los pipes {} para eso ademas tengo que vincular el json con el ts del componente
-# Primero se importa el json en el servicio y luego se importa el servico en el componente
-# Pongo import { Observable } from 'rxjs'; en el ts de sobre mi
-# Importante!! Puede pasar cuando se inyectan servicios que se cae el vivo
-# En ese caso hay que matar la terminal y volverla a abrir hasta que vuelva a funcionar
-# Tenía un problema al usar el servicio portfolio por no estar en app.module.ts
-# Esto es porque el Ángular Schematics routea en app.module
-# Para habilidades me fijo que cambia en el progress bar para ver que pongo en la base de datos provisoria en JSON
-# Para traer datos de arrayt uso lo que esta en habilidades
-# Para hacer en la barra de progresos {style: **%} usamos [style.width.%]="progreso.porcentaje"
-# Sesiones
-# Autorización la hace la base de datos
-# Autentificación la hace JWT (JSON Web Token) EL JWT  sirve en los sistemas de seguridad
-# Permite el intercambio seguro de datos entre dos partes. Este queda almacenado como una cookie. Hace que solo pueda ingresar a la parte administradora de la web con una contraseña o alguna seguridad.
-
-
-# Vuelvo a Angular a poner el backend
-# creo una carpeta llamada entidades
-# Botón derecho Angular: Generate another schematic y pongo class
-# Selecciono Skip test y luego true y confirmo
-# Ahi pongo los atributos con su tipo de dato y el constructor de cada clase
-# Para que no tire error a id le pongo un ? o !
-# Los date del backend los pongo como string que funcionan bien y los booleanos como boolean
-# Ahora vemos la base JSON que teníamos de antes
-# Creamos un nuevo servicio dentro de la carpeta servicios con la entidad en cuestión
-
-# Para hacer el formulario por gongo el form antes del modal body y lo termino despues del footer
+# :wave:Gracias por visitar mi Repositorio.

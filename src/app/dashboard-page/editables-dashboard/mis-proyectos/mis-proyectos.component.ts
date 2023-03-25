@@ -28,6 +28,7 @@ constructor(private formBuilder: FormBuilder, private sProyecto: ProyectoService
     nombreProyecto:['', [Validators.required]],
     anio:[''],
     descripcionProyecto:['', [Validators.required]],
+    linkProyecto:['', [Validators.required]],
   })
 }
 

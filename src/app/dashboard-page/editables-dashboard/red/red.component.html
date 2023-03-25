@@ -27,11 +27,11 @@
 
 
   <div class="mb-3">
-    <label for="red" class="form-label">Nombre de la Red Social</label>
-    <input type="text" class="form-control" id="red" placeholder="campo obligatorio" formControlName="red"
+    <label for="red" class="form-label">Ícono de la Red Social</label>
+    <input type="text" class="form-control" id="red" placeholder="(campo obligatorio) Sacar ícono de FontAwesome" formControlName="red"
       [ngClass]="{'is-invalid': form.get('red')?.errors && form.get('red')?.touched, 'is-valid': form.get('red')?.errors && form.get('red')?.touched}">
     <p class="text-danger" *ngIf="form.get('red')?.touched && form.get('red')?.errors?.['required']">
-      El Nombre de la Red es requerido.
+      El ícono  de la Red es requerido.
     </p>
   </div>
   <div class="mb-3">
@@ -40,15 +40,6 @@
       [ngClass]="{'is-invalid': form.get('link')?.errors && form.get('link')?.touched, 'is-valid': form.get('link')?.errors && form.get('link')?.touched}">
     <p class="text-danger" *ngIf="form.get('link')?.touched && form.get('link')?.errors?.['required']">
       El link de la Red Social es requerido.
-    </p>
-  </div>
-  <div class="mb-3">
-    <label for="color" class="form-label">Color del ícono de la Red Social</label>
-    <input type="text" class="form-control" id="color" placeholder="campo obligatorio (Escribir color en ingles)"
-      formControlName="color"
-      [ngClass]="{'is-invalid': form.get('color')?.errors && form.get('color')?.touched, 'is-valid': form.get('color')?.errors && form.get('color')?.touched}">
-    <p class="text-danger" *ngIf="form.get('color')?.touched && form.get('color')?.errors?.['required']">
-      El color de la Red Social es requerido.
     </p>
   </div>
   <!--<button type="button" class="btn btn-primary" (click)="limpiar()">Limpiar</button>
