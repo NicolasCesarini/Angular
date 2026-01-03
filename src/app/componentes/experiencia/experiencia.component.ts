@@ -20,7 +20,9 @@ export class ExperienciaComponent implements OnInit {
   //llamamos a los métodos
 
   public cargarExperiencia():void{   //no va a haber ningun retorno, solo una carga de datos
-    this.sExperiencia.verExperiencias().subscribe(data => {this.experiencias=data}); // uso el this porque esta fuera del método
+    this.sExperiencia.verExperiencias().subscribe(data => {
+      this.experiencias = data.slice().reverse();
+    }); // uso el this porque esta fuera del método
   }
 
   public borrar(id:number){
@@ -35,18 +37,4 @@ export class ExperienciaComponent implements OnInit {
       )
     }
   }
-
-  public  (id:number){
-    if(id != undefined){
-      this.sExperiencia.borrarExperiencia(id).subscribe(
-        data =>{
-          // alert("Experiencia eliminada correctamente)
-          this.cargarExperiencia();
-        }, err =>{
-          alert("No se pudo elmiminar la experiencia")
-        }
-      )
-    }
-  }
-
 }

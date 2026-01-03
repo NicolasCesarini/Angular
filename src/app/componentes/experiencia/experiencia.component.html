@@ -1,21 +1,26 @@
 <!-- Empieza la sección experiencia -->
 <section id="experiencia" class="experiencia">
-    <div class="container text-center seccion">
-        <h2><span class="text-secondary">Experiencia</span></h2>
-        <div class="row d-flex justify-content-center align-items-center"  *ngFor="let experiencia of experiencias">
-            <div class="col-10 col-sm-8 col-md-4">
-                <img src="{{experiencia.imgExperiencia}}" class="rounded-circle w-75" alt="..." tittle="...">
-                <h2><span class="text-secondary">{{experiencia.puesto}}</span></h2>
-                <h2><span class="text-secondary">{{experiencia.empresa}}</span></h2>
-                <h2><span class="text-secondary">{{experiencia.anio}}</span></h2>
-                <br>
-            </div>
-            <div class="col-10 col-sm-8 col-md-8">
-                <h5><span class="text-secondary">{{experiencia.descripcionTrabajo}}
-                </span></h5>
-            </div>
-        </div>
+  <div class="container seccion section-shell">
+    <div class="section-header">
+      <p class="eyebrow">Experiencia</p>
+      <h2>Trayectoria profesional</h2>
+      <p class="section-subtitle">Últimas experiencias primero</p>
     </div>
+    <div class="row g-4">
+      <div class="col-12" *ngFor="let experiencia of experiencias">
+        <div class="experience-card">
+          <div class="experience-meta">
+            <img src="{{experiencia.imgExperiencia}}" class="company-logo" alt="Logo empresa">
+            <div>
+              <h3>{{experiencia.puesto}}</h3>
+              <p class="text-muted">{{experiencia.empresa}} • {{experiencia.anio}}</p>
+            </div>
+          </div>
+          <p class="experience-description">{{experiencia.descripcionTrabajo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <br><br>
