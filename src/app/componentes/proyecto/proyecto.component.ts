@@ -20,7 +20,9 @@ export class ProyectoComponent implements OnInit {
   //llamamos a los métodos
 
   public cargarProyecto():void{   //no va a haber ningun retorno, solo una carga de datos
-    this.sProyecto.verProyectos().subscribe(data => {this.proyectos=data}); // uso el this porque esta fuera del método
+    this.sProyecto.verProyectos().subscribe(data => {
+      this.proyectos = data.slice().reverse();
+    }); // uso el this porque esta fuera del método
   }
 
 }

@@ -1,0 +1,11 @@
+.project-card .btn {
+  align-self: flex-start;
+  border-radius: 12px;
+  padding-inline: 1.2rem;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.18);
+}
+
+.project-footer {
+  display: flex;
+  justify-content: flex-start;
+}

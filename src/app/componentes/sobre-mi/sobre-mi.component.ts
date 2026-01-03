@@ -21,7 +21,9 @@ export class SobreMiComponent implements OnInit {
   }
 
   lista():void{
-    this.sPersona.verPersonas().subscribe(data => {this.personas=data});
+    this.sPersona.verPersonas().subscribe(data => {
+      this.personas = data.slice().reverse();
+    });
   }
 
 

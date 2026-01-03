@@ -21,6 +21,8 @@ export class EducacionComponent implements OnInit {
   //llamamos a los métodos
 
   public cargarEstudio():void{   //no va a haber ningun retorno, solo una carga de datos
-    this.sEstudio.verEducacion().subscribe(data => {this.estudios=data}); // uso el this porque esta fuera del método
+    this.sEstudio.verEducacion().subscribe(data => {
+      this.estudios = data.slice().reverse();
+    }); // uso el this porque esta fuera del método
   }
 }

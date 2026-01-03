@@ -20,7 +20,9 @@ export class HabilidadesComponent implements OnInit {
   //llamamos a los métodos
 
   public cargarHabilidad():void{   //no va a haber ningun retorno, solo una carga de datos
-    this.sHabilidad.verHabilidades().subscribe(data => {this.habilidades=data}); // uso el this porque esta fuera del método
+    this.sHabilidad.verHabilidades().subscribe(data => {
+      this.habilidades = data.slice().reverse();
+    }); // uso el this porque esta fuera del método
   }
 
 }

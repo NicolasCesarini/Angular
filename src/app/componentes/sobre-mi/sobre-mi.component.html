@@ -1,20 +1,21 @@
 <!-- Empieza la sección sobre mí -->
 <section id="sobre_mi">
-    <div class="container text-center">
-        <div class="row d-flex justify-content-center align-items-center"  *ngFor="let persona of personas">
-
-            <div class="col-10 col-sm-8 col-md-4">
-                <img src="{{persona.imgPerfil}}" class="rounded-circle w-75" alt="foto de perfil" tittle="...">
-                <h2><span class="text-secondary">{{persona.nombre}} {{persona.apellido}}</span></h2>
-                <!-- <h2><span class="text-secondary">Apellido: {{persona.apellido}}</span></h2> -->
-                <h2><span class="text-secondary">Edad: {{persona.edad}} años</span></h2>
-            </div>
-            <div class="col-10 col-sm-8 col-md-8">
-                <h5><span class="text-secondary">{{persona.acercaDe}}
-                </span></h5>
-            </div>
+  <div class="container seccion section-shell about-shell" *ngFor="let persona of personas">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-md-4 text-center">
+        <div class="avatar-wrapper">
+          <img src="{{persona.imgPerfil}}" class="avatar" alt="foto de perfil">
         </div>
+        <h2 class="about-name">{{persona.nombre}} {{persona.apellido}}</h2>
+        <p class="text-muted">Edad: {{persona.edad}} años</p>
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="eyebrow">Sobre mí</p>
+        <h3 class="about-title">Conoce quién está detrás del proyecto</h3>
+        <p class="about-description">{{persona.acercaDe}}</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <br><br>
